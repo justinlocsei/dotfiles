@@ -10,6 +10,9 @@ alias brake='bundle exec rake'
 alias brails='bundle exec rails'
 alias bspec='bundle exec rspec'
 alias be='bundle exec'
+alias zr='zeus rake'
+alias zs='zeus server'
+alias zu='zeus start'
 
 # Git
 alias ga='git add'
@@ -25,5 +28,3 @@ alias gpl='git pull'
 alias gpu='git push'
 alias gs='git status'
 
-# Browserstack
-alias browserstack='java -jar /usr/local/lib/BrowserStackTunnel.jar tqG7h8wWcbJccGVq5Yz8 localhost,3000,0'
