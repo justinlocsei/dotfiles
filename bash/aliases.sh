@@ -12,9 +12,11 @@ alias bspec='bundle exec rspec'
 alias be='bundle exec'
 
 # Git
-alias gc='git commia'
+alias ga='git add'
+alias gc='git commit'
 alias gca='git commit -a'
 alias gco='git checkout'
+alias gd='git diff'
 alias gl='git log'
 alias gm='git merge'
 alias gpl='git pull'
