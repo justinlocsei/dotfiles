@@ -1,13 +1,9 @@
-
 # Solarized colors
 # https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
 BOLD=$(tput bold)
 RESET=$(tput sgr0)
 SOLAR_YELLOW=$(tput setaf 136)
 SOLAR_ORANGE=$(tput setaf 166)
-SOLAR_RED=$(tput setaf 124)
-SOLAR_MAGENTA=$(tput setaf 125)
-SOLAR_VIOLET=$(tput setaf 61)
 SOLAR_BLUE=$(tput setaf 33)
 SOLAR_CYAN=$(tput setaf 37)
 SOLAR_GREEN=$(tput setaf 64)
@@ -18,6 +14,7 @@ style_user="\[${RESET}${SOLAR_ORANGE}\]"
 style_host="\[${RESET}${SOLAR_YELLOW}\]"
 style_path="\[${RESET}${SOLAR_GREEN}\]"
 style_chars="\[${RESET}${SOLAR_WHITE}\]"
+style_important="\[${RESET}${BOLD}${SOLAR_BLUE}\]"
 style_branch="${SOLAR_CYAN}"
 
 # Git status
@@ -43,12 +40,17 @@ function prompt_git() {
 
 # Build the prompt
 PS1="\n" # Newline
+if [[ "$SSH_TTY" ]]; then
+  PS1+="${style_important}[ssh] " # [ssh]
+fi
 PS1+="${style_user}\u" # Username
 PS1+="${style_chars}@" # @
 PS1+="${style_host}\h" # Host
 PS1+="${style_chars}: " # :
 PS1+="${style_path}\w" # Working directory
-PS1+="\$(prompt_git)" # Git details
+if [[ -z "$SSH_TTY" ]]; then
+  PS1+="\$(prompt_git)" # Git details
+fi
 PS1+="\n" # Newline
 PS1+="${style_chars}\$ \[${RESET}\]" # $ (and reset color)
 
