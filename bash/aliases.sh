@@ -13,6 +13,8 @@ alias be='bundle exec'
 
 # Git
 alias ga='git add'
+alias gb='git branch'
+alias gba='git branch -a'
 alias gc='git commit'
 alias gca='git commit -a'
 alias gco='git checkout'
