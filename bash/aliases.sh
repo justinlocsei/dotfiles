@@ -13,6 +13,7 @@ alias be='bundle exec'
 alias zr='zeus rake'
 alias zs='zeus server'
 alias zu='zeus start'
+alias zspec='zeus rspec'
 
 # Git
 alias ga='git add'
