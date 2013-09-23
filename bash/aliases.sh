@@ -6,6 +6,7 @@ else
 fi
 
 # Ruby
+alias bcon='bundle exec rails console'
 alias brake='bundle exec rake'
 alias brails='bundle exec rails'
 alias bspec='bundle exec rspec'
