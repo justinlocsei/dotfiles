@@ -41,7 +41,7 @@ function prompt_git() {
 # Build the prompt
 PS1="\n" # Newline
 if [[ "$SSH_TTY" ]]; then
-  PS1+="${style_important}[ssh] " # [ssh]
+  PS1+="${style_important}[SSH] " # [SSH]
 fi
 PS1+="${style_user}\u" # Username
 PS1+="${style_chars}@" # @
