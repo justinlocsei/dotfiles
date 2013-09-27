@@ -5,6 +5,11 @@ else
   alias ll='ls -lh --color=auto'
 fi
 
+# File listing
+pag() {
+  ps aux | grep -v grep | grep $1
+}
+
 # Ruby
 alias bcon='bundle exec rails console'
 alias brake='bundle exec rake'
