@@ -7,7 +7,7 @@ fi
 
 # File listing
 pag() {
-  ps aux | grep -v grep | grep $1
+  ps aux | grep -v grep | grep -e "$1"
 }
 
 # Ruby
