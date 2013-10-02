@@ -1,0 +1,7 @@
+{
+  "trim_trailing_white_space_on_save": true,
+  "word_wrap": false,
+  "wrap_width": 80,
+  "draw_centered": false,
+  "auto_match_enabled": true
+}

@@ -1,0 +1,5 @@
+{
+  "git_command": "/usr/local/bin/git",
+  "statusbar_branch": false,
+  "statusbar_status": false
+}
