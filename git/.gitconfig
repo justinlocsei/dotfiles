@@ -1,0 +1,15 @@
+[user]
+	name = Justin Locsei
+	email = justin.locsei@gmail.com
+[push]
+	default = tracking
+[branch]
+	autosetuprebase = always
+[core]
+	editor = /usr/bin/vim
+[merge]
+	log = 50
+	summary = true
+[color]
+	ui = true
+
