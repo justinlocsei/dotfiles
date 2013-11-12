@@ -1,15 +1,20 @@
 [user]
-	name = Justin Locsei
-	email = justin.locsei@gmail.com
+  name = Justin Locsei
+  email = justin.locsei@gmail.com
 [push]
-	default = tracking
+  default = tracking
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 [core]
-	editor = /usr/bin/vim
+  editor = /usr/bin/vim
 [merge]
-	log = 50
-	summary = true
+  log = 50
+  summary = true
+  tool = diffmerge
+[mergetool "diffmerge"]
+  cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+  keepBackup = false
+  trustExitCode = true
 [color]
-	ui = true
+  ui = true
 
