@@ -1,4 +1,3 @@
 # Dotfiles
 
-Settings files for bash, iTerm2, and Sublime Text 2.
-
+Settings files for various programs that can be installed by running the `install` script in the root of this repository.
