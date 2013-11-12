@@ -5,8 +5,6 @@
 #------------------------------------------------------------------------------
 
 SUBLIME_DIR="$HOME/Library/Application Support/Sublime Text 2/Packages/User"
-PREFS_DIR="`pwd`/sublime"
-cd "$PREFS_DIR"
 
 # Create symlinks to preference files
 for file in *; do
@@ -16,7 +14,7 @@ for file in *; do
       rm "$SUBLIME_DIR/$file" 
     fi
     echo "Linking preference file: $file"
-    ln -s "$PREFS_DIR/$file" "$SUBLIME_DIR/$file"
+    ln -s "$PWD/$file" "$SUBLIME_DIR/$file"
   fi
 done
 
@@ -28,7 +26,7 @@ for directory in *; do
       rm -R "$SUBLIME_DIR/$directory"
     fi
     echo "Linking directory: $directory"
-    ln -s "$PREFS_DIR/$directory" "$SUBLIME_DIR/$directory"
+    ln -s "$PWD/$directory" "$SUBLIME_DIR/$directory"
   fi
 done
 
