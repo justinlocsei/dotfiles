@@ -49,6 +49,9 @@ set novisualbell
 set t_vb=
 set tm=500
 
+" Show line numbers
+set number
+
 " Enable syntax highlighting
 syntax enable
 
