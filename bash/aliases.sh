@@ -12,11 +12,13 @@ pag() {
 
 # Ruby
 alias bcon='bundle exec rails console'
+alias bcuke='bundle exec cucumber'
 alias brake='bundle exec rake'
 alias brails='bundle exec rails'
 alias bspec='bundle exec rspec'
 alias be='bundle exec'
 alias zcon='zeus console'
+alias zcuke='zeus cucumber'
 alias zrake='zeus rake'
 alias zs='zeus server'
 alias zu='zeus start'
