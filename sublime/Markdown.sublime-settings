@@ -3,5 +3,6 @@
   "word_wrap": false,
   "wrap_width": 80,
   "draw_centered": false,
-  "auto_match_enabled": true
+  "auto_match_enabled": true,
+  "rulers": [80]
 }
