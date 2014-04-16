@@ -1,6 +1,7 @@
 #!/bin/sh
 
 PROFILE="$HOME/.bash_profile"
+touch "$PROFILE"
 
 for script in *.sh; do
   source_line="source $PWD/$script"
