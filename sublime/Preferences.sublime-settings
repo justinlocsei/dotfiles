@@ -31,6 +31,7 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
+		"Markdown"
 	],
 	"indent_guide_options":
 	[
