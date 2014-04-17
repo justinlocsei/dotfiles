@@ -1,32 +1,42 @@
 #!/bin/sh
 
 #------------------------------------------------------------------------------
-# Install preference files and snippets for Sublime Text 2 on OS X
+# Install preference files and snippets for Sublime Text 2 and 3 on OS X
 #------------------------------------------------------------------------------
 
-SUBLIME_DIR="$HOME/Library/Application Support/Sublime Text 2/Packages/User"
+for version in 2 3; do
 
-# Create symlinks to preference files
-for file in *; do
-  if [[ -f "$file" ]]; then
-    if [[ -f "$SUBLIME_DIR/$file" ]]; then
-      echo "Removing existing preference file: $file"
-      rm "$SUBLIME_DIR/$file" 
-    fi
-    echo "Linking preference file: $file"
-    ln -s "$PWD/$file" "$SUBLIME_DIR/$file"
+  # Skip the Sublime version if it is not present
+  sublime_dir="$HOME/Library/Application Support/Sublime Text $version/Packages/User"
+  if [[ ! -d "$sublime_dir" ]]; then
+    continue
   fi
-done
+  echo
+  echo "Customizing Sublime text $version"
+  echo
 
-# Create symlinks to subdirectories
-for directory in *; do
-  if [[ -d "$directory" ]]; then
-    if [[ -d "$SUBLIME_DIR/$directory" ]]; then
-      echo "Removing existing directory: $directory"
-      rm -R "$SUBLIME_DIR/$directory"
+  # Create symlinks to preference files
+  for file in *; do
+    if [[ -f "$file" ]]; then
+      if [[ -f "$sublime_dir/$file" ]]; then
+        echo "Removing existing preference file: $file"
+        rm "$sublime_dir/$file" 
+      fi
+      echo "Linking preference file: $file"
+      ln -s "$PWD/$file" "$sublime_dir/$file"
     fi
-    echo "Linking directory: $directory"
-    ln -s "$PWD/$directory" "$SUBLIME_DIR/$directory"
-  fi
-done
+  done
 
+  # Create symlinks to subdirectories
+  for directory in *; do
+    if [[ -d "$directory" ]]; then
+      if [[ -d "$sublime_dir/$directory" ]]; then
+        echo "Removing existing directory: $directory"
+        rm -R "$sublime_dir/$directory"
+      fi
+      echo "Linking directory: $directory"
+      ln -s "$PWD/$directory" "$sublime_dir/$directory"
+    fi
+  done
+
+done
