@@ -1,0 +1,22 @@
+{
+	"installed_packages":
+	[
+		"ApacheConf.tmLanguage",
+		"CSScomb JS",
+		"CTags",
+		"DocBlockr",
+		"Emmet",
+		"Focus Last Tab",
+		"Git",
+		"GitGutter",
+		"Gitignore",
+		"Liquid",
+		"Markdown Preview",
+		"MarkdownEditing",
+		"nginx",
+		"Package Control",
+		"RSpec",
+		"Theme - Soda",
+		"Wrap Plus"
+	]
+}
