@@ -17,6 +17,13 @@ style_chars="\[${RESET}${SOLAR_WHITE}\]"
 style_important="\[${RESET}${BOLD}${SOLAR_BLUE}\]"
 style_branch="${SOLAR_CYAN}"
 
+# Git repo state
+function git_repo_state() {
+  local status
+  status="$(git status 2>/dev/null | tail -n1)"
+  [[ $status != *"nothing to commit"* ]] && echo "[!]";
+}
+
 # Git status
 function prompt_git() {
   local status output flags
@@ -35,7 +42,7 @@ function prompt_git() {
   if [[ "$flags" ]]; then
     output="$output[$flags]"
   fi
-  echo -ne "${SOLAR_WHITE} on ${style_branch}${output}"
+  echo -ne "${SOLAR_WHITE} on ${style_branch}${output}$(git_repo_state)"
 }
 
 # Build the prompt
