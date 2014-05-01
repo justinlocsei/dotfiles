@@ -29,10 +29,7 @@
 	],
 	"font_size": 10.0,
 	"highlight_line": true,
-	"ignored_packages":
-	[
-		"Markdown"
-	],
+	"ignored_packages": [],
 	"indent_guide_options":
 	[
 		"draw_active"
