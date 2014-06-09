@@ -10,6 +10,8 @@
 		"Git",
 		"GitGutter",
 		"Gitignore",
+		"Handlebars",
+		"HTML Underscore Syntax",
 		"Liquid",
 		"Markdown Preview",
 		"MarkdownEditing",
@@ -18,6 +20,7 @@
 		"RSpec",
 		"Sass",
 		"SideBarEnhancements",
+		"Stylus",
 		"Theme - Soda",
 		"Wrap Plus"
 	]
