@@ -5,6 +5,9 @@ else
   alias ll='ls -lh --color=auto'
 fi
 
+# Profile management
+alias sbp='source ~/.bash_profile'
+
 # File listing
 pag() {
   ps aux | grep -v grep | grep -e "$1"
