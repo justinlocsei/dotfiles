@@ -6,6 +6,5 @@ for module in bash git sublime vim; do
   echo "Installing $module customizations..."
   cd "$BASE_DIR/$module"
   sh install
-  echo 
+  echo
 done
-
