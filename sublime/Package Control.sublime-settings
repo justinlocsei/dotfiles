@@ -1,7 +1,12 @@
 {
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
 	"installed_packages":
 	[
 		"ApacheConf.tmLanguage",
+		"BetterFindBuffer",
 		"Chai Completions",
 		"Color Highlighter",
 		"CSScomb",
@@ -9,17 +14,20 @@
 		"Cucumber",
 		"DocBlockr",
 		"Emmet",
+		"Enhanced Clojure",
 		"Focus Last Tab",
 		"Git",
 		"GitGutter",
 		"Gitignore",
 		"Handlebars",
 		"HTML Underscore Syntax",
+		"Leiningen",
 		"Liquid",
 		"Markdown Preview",
 		"MarkdownEditing",
 		"nginx",
 		"Package Control",
+		"paredit",
 		"Rake",
 		"ReactJS",
 		"RSpec",
