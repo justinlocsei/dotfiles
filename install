@@ -2,9 +2,17 @@
 
 BASE_DIR=$PWD
 
-for module in bash git projects sublime tmux vim; do
-  echo "Installing $module customizations..."
-  cd "$BASE_DIR/$module"
-  sh install
-  echo
+source "install-helpers"
+
+# Run the install script for each module that provides one
+for module in *; do
+  module_path="$BASE_DIR/$module"
+  if [[ -d "$module_path" && ! -L "$module_path" ]]; then
+    if [[ -f "$module_path/install" ]]; then
+      show_module_title "$module"
+      cd "$module_path"
+      sh install
+      echo
+    fi
+  fi
 done

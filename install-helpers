@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Print a character-based divider that spans the screen
+show_divider() {
+  printf "%*s" $(tput cols) "" | tr " " "$1"
+  echo
+}
+
+# Print the title of a module, wrapped by dividers
+show_module_title() {
+  show_divider "="
+  echo "Module: $1"
+  show_divider "="
+  echo
+}
