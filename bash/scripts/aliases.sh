@@ -7,6 +7,7 @@ fi
 
 # Profile management
 alias sbp='source ~/.bash_profile'
+alias vbp='vi ~/.bash_profile'
 
 # Ruby
 alias bcon='bundle exec rails console'
