@@ -2,7 +2,7 @@
 
 BASE_DIR=$PWD
 
-for module in bash git sublime tmux vim; do
+for module in bash git projects sublime tmux vim; do
   echo "Installing $module customizations..."
   cd "$BASE_DIR/$module"
   sh install
