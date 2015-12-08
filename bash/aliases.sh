@@ -1,4 +1,4 @@
-# Common 
+# Common
 if [[ `uname -s` == "Darwin" ]]; then
   alias ll='ls -Glh'
 else
