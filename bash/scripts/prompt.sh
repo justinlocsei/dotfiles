@@ -17,14 +17,14 @@ style_chars="\[${RESET}${SOLAR_WHITE}\]"
 style_important="\[${RESET}${BOLD}${SOLAR_BLUE}\]"
 style_branch="${SOLAR_CYAN}"
 
-# Git repo state
+# Show the commit status of the current git repo
 function git_repo_state() {
   local status
   status="$(git status 2>/dev/null | tail -n1)"
   [[ $status != *"nothing to commit"* ]] && echo "[!]";
 }
 
-# Git status
+# Show the name and status of the current git repo
 function prompt_git() {
   local status output flags
   status="$(git status 2>/dev/null)"
@@ -46,18 +46,14 @@ function prompt_git() {
 }
 
 # Build the prompt
-PS1="\n" # Newline
+PS1="\n"
 if [[ "$SSH_TTY" ]]; then
   PS1+="${style_important}[SSH] " # [SSH]
 fi
-PS1+="${style_user}\u" # Username
-PS1+="${style_chars}@" # @
-PS1+="${style_host}\h" # Host
-PS1+="${style_chars}: " # :
-PS1+="${style_path}\w" # Working directory
+PS1+="${style_user}\u${style_chars}@${style_host}\h" # username@host
+PS1+="${style_chars}: ${style_path}\w" # : directory
 if [[ -z "$SSH_TTY" ]]; then
   PS1+="\$(prompt_git)" # Git details
 fi
-PS1+="\n" # Newline
-PS1+="${style_chars}\$ \[${RESET}\]" # $ (and reset color)
-
+PS1+="\n"
+PS1+="${style_chars}\$ \[${RESET}\]"

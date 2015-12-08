@@ -1,4 +1,4 @@
-# Common
+# Use an OS-specific rich-list function
 if [[ `uname -s` == "Darwin" ]]; then
   alias ll='ls -Glh'
 else
@@ -7,11 +7,6 @@ fi
 
 # Profile management
 alias sbp='source ~/.bash_profile'
-
-# File listing
-pag() {
-  ps aux | grep -v grep | grep -e "$1"
-}
 
 # Ruby
 alias bcon='bundle exec rails console'
@@ -28,16 +23,13 @@ alias zu='zeus start'
 alias zspec='zeus rspec'
 
 # Git
-alias ga='git add'
-alias gb='git branch'
 alias gba='git branch -a'
-alias gc='git commit'
-alias gca='git commit -a'
 alias gco='git checkout'
 alias gd='git diff'
 alias gl='git log'
-alias gm='git merge'
-alias gpl='git pull'
-alias gpu='git push'
 alias gs='git status'
 
+# Show all processes that match a name
+pag() {
+  ps aux | grep -v grep | grep -e "$1"
+}
