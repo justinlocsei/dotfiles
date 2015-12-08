@@ -11,10 +11,6 @@
   log = 50
   summary = true
 	tool = Kaleidoscope
-[mergetool "diffmerge"]
-  cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
-  keepBackup = false
-  trustExitCode = true
 [color]
   ui = true
 
