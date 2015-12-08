@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Formatting constants
 ESC_SEQ="\x1b["

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #------------------------------------------------------------------------------
 # Install preference files and snippets for Sublime Text 2 and 3 on OS X
