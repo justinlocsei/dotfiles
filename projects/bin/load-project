@@ -45,10 +45,10 @@ project["terminal"]["tabs"].each do |tab|
     commands << %Q{-c "#{File.expand_path(pane['directory'])}"} if pane["directory"]
 
     system(commands.join(" "))
-    system("tmux select-pane -t #{i}") if i > 0
+    system("tmux select-pane -t #{i+1}") if i > 0
   end
 
-  system("tmux select-pane -t 0")
+  system("tmux select-pane -t 1")
 end
 
 # Kill the initial window and open the tmux session with the first window active
