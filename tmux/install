@@ -2,4 +2,4 @@
 
 source "../install-helpers"
 
-ensure_symlink_exists "tmux configuration file" "$PWD/tmux.conf" "$HOME/.tmux.conf"
+ensure_symlink_exists "tmux configuration file" "$PWD/config/tmux.conf" "$HOME/.tmux.conf"

@@ -2,4 +2,4 @@
 
 source "../install-helpers"
 
-ensure_symlink_exists "git configuration file" "$PWD/gitconfig" "$HOME/.gitconfig"
+ensure_symlink_exists "git configuration file" "$PWD/config/gitconfig" "$HOME/.gitconfig"

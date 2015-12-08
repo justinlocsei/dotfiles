@@ -5,6 +5,7 @@ source "../install-helpers"
 PROFILE="$HOME/.bash_profile"
 touch "$PROFILE"
 
+cd scripts
 for script in *.sh; do
   source_line="source $PWD/$script"
   if [ -z "`grep "$source_line" "$PROFILE"`" ]; then

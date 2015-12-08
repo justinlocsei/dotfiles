@@ -2,4 +2,4 @@
 
 source "../install-helpers"
 
-ensure_symlink_exists "vim configuration file" "$PWD/vimrc" "$HOME/.vimrc"
+ensure_symlink_exists "vim configuration file" "$PWD/config/vimrc" "$HOME/.vimrc"

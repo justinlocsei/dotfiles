@@ -1,41 +1,14 @@
 #!/bin/bash
 
-#------------------------------------------------------------------------------
-# Install preference files and snippets for Sublime Text 2 and 3 on OS X
-#------------------------------------------------------------------------------
-
 source "../install-helpers"
 
-for version in 2 3; do
+SUBLIME_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
 
-  # Skip the Sublime version if it is not present
-  sublime_dir="$HOME/Library/Application Support/Sublime Text $version/Packages/User"
-  if [[ ! -d "$sublime_dir" ]]; then
-    continue
+cd settings
+for setting in *; do
+  if [[ -e "$SUBLIME_DIR/$setting" && ! -L "$SUBLIME_DIR/$setting" ]]; then
+    perform_action "Removing existing Sublime preference: $setting"
+    rm -R "$SUBLIME_DIR/$setting"
   fi
-  echo "Customizing Sublime text $version"
-  echo
-
-  # Create symlinks to preference files
-  for file in *.sublime*; do
-    if [[ -f "$file" ]]; then
-      if [[ -f "$sublime_dir/$file" && ! -L "$sublime_dir/$file" ]]; then
-        perform_action "Removing default Sublime preference file: $file"
-        rm "$sublime_dir/$file"
-      fi
-      ensure_symlink_exists "Sublime preferences file: $file" "$PWD/$file" "$sublime_dir/$file"
-    fi
-  done
-
-  # Create symlinks to subdirectories
-  for directory in *; do
-    if [[ -d "$directory" && ! -L "$directory" ]]; then
-      if [[ -d "$sublime_dir/$directory" && ! -L "$sublime_dir/$directory" ]]; then
-        perform_action "Removing default Sublime preferences directory: $directory"
-        rm -R "$sublime_dir/$directory"
-      fi
-      ensure_symlink_exists "Sublime preferences directory: $directory" "$PWD/$directory" "$sublime_dir/$directory"
-    fi
-  done
-
+  ensure_symlink_exists "Sublime preference: $setting" "$PWD/$setting" "$SUBLIME_DIR/$setting"
 done

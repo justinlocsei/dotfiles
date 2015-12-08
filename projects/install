@@ -8,4 +8,4 @@ projects_dir="$HOME/projects"
 ensure_directory_exists "user binaries" "$bin_dir"
 ensure_directory_exists "projects" "$projects_dir"
 
-ensure_symlink_exists "project loader" "$PWD/load-project" "$bin_dir/load-project"
+ensure_symlink_exists "project loader" "$PWD/bin/load-project" "$bin_dir/load-project"
