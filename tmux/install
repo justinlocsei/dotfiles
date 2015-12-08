@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -f "$HOME/.tmux.conf" ]; then
+  echo "Tmux config file already exists"
+else
+  echo "Creating symlink to tmux config"
+  ln -s "$PWD/tmux.conf" "$HOME/.tmux.conf"
+fi
