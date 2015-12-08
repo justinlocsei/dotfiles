@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# Formatting constants
+ESC_SEQ="\x1b["
+COLOR_GREEN=$ESC_SEQ"32;01m"
+COLOR_RED=$ESC_SEQ"31;01m"
+COLOR_RESET=$ESC_SEQ"39;49;00m"
+COLOR_YELLOW=$ESC_SEQ"33;01m"
+
 # Print a character-based divider that spans the screen
 show_divider() {
   printf "%*s" $(tput cols) "" | tr " " "$1"
@@ -12,4 +19,48 @@ show_module_title() {
   echo "Module: $1"
   show_divider "="
   echo
+}
+
+# Show an error message association with an action
+fail_action() {
+  echo "$COLOR_RED[FAIL] $1 $COLOR_RESET"
+}
+
+# Perform a named action
+perform_action() {
+  echo "$COLOR_GREEN[EXEC] $1 $COLOR_RESET"
+}
+
+# Skip a named action
+skip_action() {
+  echo "$COLOR_YELLOW[SKIP] $1 $COLOR_RESET"
+}
+
+# Ensure that a symlink exists to a file
+ensure_symlink_exists() {
+  description=$1
+  source=$2
+  target=$3
+
+  if [[ -L "$target" ]]; then
+    skip_action "A link to the $description already exists"
+  elif [[ -f "$target" ]]; then
+    fail_action "A non-link $description already exists"
+  else
+    perform_action "Creating a symlink to the $description"
+    ln -s "$source" "$target"
+  fi
+}
+
+# Ensure that a directory exists
+ensure_directory_exists() {
+  description=$1
+  path=$2
+
+  if [[ -d "$path" ]]; then
+    skip_action "The $description directory already exists"
+  else
+    perform_action "Creating the $description directory"
+    mkdir "$path"
+  fi
 }

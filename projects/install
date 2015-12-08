@@ -1,18 +1,11 @@
 #!/bin/sh
 
+source "../install-helpers"
+
 bin_dir="$HOME/bin"
 projects_dir="$HOME/projects"
 
-if [ -f "$bin_dir/load-project" ]; then
-  echo "Project loader already exists"
-else
-  echo "Creating symlink to project loader"
-  ln -s "$PWD/load-project" "$bin_dir/load-project"
-fi
+ensure_directory_exists "user binaries" "$bin_dir"
+ensure_directory_exists "projects" "$projects_dir"
 
-if [ -d "$projects_dir" ]; then
-  echo "Projects directory already exists"
-else
-  echo "Creating projects directory"
-  mkdir "$projects_dir"
-fi
+ensure_symlink_exists "project loader" "$PWD/load-project" "$bin_dir/load-project"
