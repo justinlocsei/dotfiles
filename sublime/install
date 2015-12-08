@@ -20,7 +20,7 @@ for version in 2 3; do
     if [[ -f "$file" ]]; then
       if [[ -f "$sublime_dir/$file" ]]; then
         echo "Removing existing preference file: $file"
-        rm "$sublime_dir/$file" 
+        rm "$sublime_dir/$file"
       fi
       echo "Linking preference file: $file"
       ln -s "$PWD/$file" "$sublime_dir/$file"
