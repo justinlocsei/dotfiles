@@ -25,6 +25,12 @@ project["applications"].each do |application|
   system(open_command)
 end
 
+# If a tmux session for the project already exists, join it and exit
+if system("tmux list-sessions | grep '^#{project_name}:'")
+  system("tmux attach-session -t '#{project_name}'")
+  exit 0
+end
+
 # Create a new tmux session for the project
 system("tmux new-session -d -s '#{project_name}'")
 
