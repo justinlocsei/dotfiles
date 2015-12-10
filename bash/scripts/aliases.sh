@@ -34,6 +34,9 @@ alias gs="git status"
 alias npe="PATH=$(npm bin):$PATH"
 alias npr="npm run"
 
+# Tmux
+alias tma="tmux attach"
+
 # Show all processes that match a name
 pag() {
   ps aux | grep -v grep | grep -e "$1"
