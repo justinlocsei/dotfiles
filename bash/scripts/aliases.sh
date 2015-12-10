@@ -32,6 +32,7 @@ alias gs="git status"
 
 # Node.js
 alias npe="PATH=$(npm bin):$PATH"
+alias npr="npm run"
 
 # Show all processes that match a name
 pag() {
