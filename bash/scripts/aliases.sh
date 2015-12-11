@@ -41,3 +41,13 @@ alias tma="tmux attach"
 pag() {
   ps aux | grep -v grep | grep -e "$1"
 }
+
+# Install an NPM package and save it in the package manifest dependencies
+npis() {
+  npm install "$1" --save
+}
+
+# Install an NPM package and save it in the package manifest's dev dependencies
+npisd() {
+  npm install "$1" --save-dev
+}
