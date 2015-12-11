@@ -31,7 +31,7 @@ alias gl="git log"
 alias gs="git status"
 
 # Node.js
-alias npe="PATH=$(npm bin):$PATH"
+alias npe='PATH=$(npm bin):$PATH'
 alias npr="npm run"
 
 # Tmux
