@@ -25,6 +25,7 @@ alias zu="zeus start"
 
 # Git
 alias gba="git branch -a"
+alias gca="git commit -a"
 alias gco="git checkout"
 alias gd="git diff"
 alias gl="git log"
