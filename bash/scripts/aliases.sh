@@ -33,6 +33,7 @@ alias gs="git status"
 # Node.js
 alias npe='PATH=$(npm bin):$PATH'
 alias npr="npm run"
+alias npg="npe gulp"
 
 # Tmux
 alias tma="tmux attach"
