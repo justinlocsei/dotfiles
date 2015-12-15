@@ -28,6 +28,8 @@
 	<false/>
 	<key>CopySelection</key>
 	<true/>
+	<key>Default Arrangement Name</key>
+	<string>Big Red</string>
 	<key>Default Bookmark Guid</key>
 	<string>8B157171-DD5D-40BA-A82A-C86AEB9C402E</string>
 	<key>DimBackgroundWindows</key>
@@ -163,7 +165,7 @@
 	<key>HideScrollbar</key>
 	<false/>
 	<key>HideTab</key>
-	<false/>
+	<true/>
 	<key>HighlightTabLabels</key>
 	<true/>
 	<key>HotKeyBookmark</key>
@@ -229,7 +231,7 @@
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 4 1280 773 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>190 36 1090 698 0 0 1280 777 </string>
+	<string>0 4 1280 773 0 0 1280 777 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -982,7 +984,7 @@
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>455543356.77292299</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>470946112.938851</real>
+	<real>471706140.62122899</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1051,7 +1053,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-12-07T18:04:18Z</date>
+	<date>2015-12-13T11:21:14Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
