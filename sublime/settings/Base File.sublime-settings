@@ -1,5 +1,5 @@
 {
-  "jsdocs_align_tags": "shallow",
+  "jsdocs_align_tags": "no",
   "jsdocs_return_tag": "@returns",
   "jsdocs_return_description": false,
   "jsdocs_lower_case_primitives": true,
