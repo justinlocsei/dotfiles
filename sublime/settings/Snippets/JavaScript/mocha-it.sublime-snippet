@@ -4,6 +4,6 @@ it('${1:description}', function() {
   $0
 });
 ]]></content>
-  <tabTrigger>mit</tabTrigger>
+  <tabTrigger>it</tabTrigger>
   <scope>source.js</scope>
 </snippet>
