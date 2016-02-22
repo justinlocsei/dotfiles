@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"Ansible",
 		"ApacheConf.tmLanguage",
 		"BetterFindBuffer",
 		"Chai Completions",
@@ -23,6 +24,7 @@
 		"Handlebars",
 		"HTML Underscore Syntax",
 		"JavaScriptNext - ES6 Syntax",
+		"Jinja2",
 		"JSX",
 		"Leiningen",
 		"Liquid",
