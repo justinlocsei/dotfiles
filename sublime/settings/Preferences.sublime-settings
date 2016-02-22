@@ -33,7 +33,8 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"Markdown"
+		"Markdown",
+		"RSpec"
 	],
 	"indent_guide_options":
 	[
