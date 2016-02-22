@@ -38,6 +38,8 @@
 		"Sass",
 		"SideBarEnhancements",
 		"Stylus",
+		"SublimeLinter",
+		"SublimeLinter-shellcheck",
 		"Theme - Soda",
 		"TodoReview",
 		"Varnish VCL",
