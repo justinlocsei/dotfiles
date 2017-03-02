@@ -6,17 +6,11 @@
 	"installed_packages":
 	[
 		"Ansible",
-		"ApacheConf.tmLanguage",
 		"Babel",
 		"BetterFindBuffer",
 		"Chai Completions",
-		"Color Highlighter",
-		"CSScomb",
-		"CTags",
-		"Cucumber",
 		"DocBlockr",
 		"EditorConfig",
-		"Emmet",
 		"Enhanced Clojure",
 		"Focus Last Tab",
 		"Git",
@@ -24,7 +18,6 @@
 		"Gitignore",
 		"Handlebars",
 		"HTML Underscore Syntax",
-		"HTMLBeautify",
 		"Indent XML",
 		"JavaScriptNext - ES6 Syntax",
 		"Jedi - Python autocompletion",
@@ -47,11 +40,9 @@
 		"RSpec",
 		"Sass",
 		"SideBarEnhancements",
-		"Stylus",
 		"SublimeLinter",
 		"SublimeLinter-shellcheck",
 		"Theme - Soda",
-		"TodoReview",
 		"Varnish VCL",
 		"Wrap Plus"
 	]
