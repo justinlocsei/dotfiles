@@ -40,6 +40,12 @@
 	[
 		"draw_active"
 	],
+	"match_brackets": false,
+	"match_brackets_angle": false,
+	"match_brackets_braces": false,
+	"match_brackets_content": false,
+	"match_brackets_square": false,
+	"match_tags": false,
 	"open_files_in_new_window": false,
 	"preview_on_click": false,
 	"rulers":
