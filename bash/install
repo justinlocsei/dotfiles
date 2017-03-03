@@ -1,14 +1,16 @@
 #!/bin/bash
 
-source "../install-helpers"
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$CURRENT_DIR/../install-helpers"
 
 PROFILE="$HOME/.bash_profile"
 touch "$PROFILE"
 
-cd scripts
+cd "$CURRENT_DIR/scripts" || exit 1
+
 for script in *.sh; do
   source_line="source $PWD/$script"
-  if [ -z "`grep "$source_line" "$PROFILE"`" ]; then
+  if ! grep "$source_line" "$PROFILE" -q; then
     perform_action "Sourcing $script in bash profile"
     echo "$source_line" >> "$PROFILE"
   else

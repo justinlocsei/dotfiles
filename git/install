@@ -1,5 +1,6 @@
 #!/bin/bash
 
-source "../install-helpers"
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$CURRENT_DIR/../install-helpers"
 
-ensure_symlink_exists "git configuration file" "$PWD/config/gitconfig" "$HOME/.gitconfig"
+ensure_symlink_exists "git configuration file" "$CURRENT_DIR/config/gitconfig" "$HOME/.gitconfig"

@@ -1,14 +1,16 @@
 #!/bin/bash
 
-source "../install-helpers"
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$CURRENT_DIR/../install-helpers"
 
 SUBLIME_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
 
-cd settings
+cd "$CURRENT_DIR/settings" || exit 1
+
 for setting in *; do
   if [[ -e "$SUBLIME_DIR/$setting" && ! -L "$SUBLIME_DIR/$setting" ]]; then
     perform_action "Removing existing Sublime preference: $setting"
-    rm -R "$SUBLIME_DIR/$setting"
+    rm -R "${SUBLIME_DIR:?}/$setting"
   fi
   ensure_symlink_exists "Sublime preference: $setting" "$PWD/$setting" "$SUBLIME_DIR/$setting"
 done

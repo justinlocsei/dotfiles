@@ -1,17 +1,16 @@
 #!/bin/bash
 
-BASE_DIR=$PWD
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$CURRENT_DIR/install-helpers"
 
-source "install-helpers"
+cd "$CURRENT_DIR" || exit 1
 
-# Run the install script for each module that provides one
 for module in *; do
-  module_path="$BASE_DIR/$module"
+  module_path="$CURRENT_DIR/$module"
   if [[ -d "$module_path" && ! -L "$module_path" ]]; then
     if [[ -f "$module_path/install" ]]; then
       show_module_title "$module"
-      cd "$module_path"
-      sh install
+      "$module_path"/install
       echo
     fi
   fi

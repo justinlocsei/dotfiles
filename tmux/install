@@ -1,5 +1,6 @@
 #!/bin/bash
 
-source "../install-helpers"
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$CURRENT_DIR/../install-helpers"
 
-ensure_symlink_exists "tmux configuration file" "$PWD/config/tmux.conf" "$HOME/.tmux.conf"
+ensure_symlink_exists "tmux configuration file" "$CURRENT_DIR/config/tmux.conf" "$HOME/.tmux.conf"

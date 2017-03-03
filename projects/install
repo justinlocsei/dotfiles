@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source "../install-helpers"
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$CURRENT_DIR/../install-helpers"
 
 bin_dir="$HOME/bin"
 projects_dir="$HOME/projects"
@@ -8,4 +9,4 @@ projects_dir="$HOME/projects"
 ensure_directory_exists "user binaries" "$bin_dir"
 ensure_directory_exists "projects" "$projects_dir"
 
-ensure_symlink_exists "project loader" "$PWD/bin/load-project" "$bin_dir/load-project"
+ensure_symlink_exists "project loader" "$CURRENT_DIR/bin/load-project" "$bin_dir/load-project"
