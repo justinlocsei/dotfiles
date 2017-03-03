@@ -9,7 +9,7 @@ COLOR_YELLOW=$ESC_SEQ"33;01m"
 
 # Print a character-based divider that spans the screen
 show_divider() {
-  printf "%*s" $(tput cols) "" | tr " " "$1"
+  printf "%*s" "$(tput cols)" "" | tr " " "$1"
   echo
 }
 
@@ -23,17 +23,17 @@ show_module_title() {
 
 # Show an error message association with an action
 fail_action() {
-  echo "$COLOR_RED[FAIL] $1 $COLOR_RESET"
+  echo -e "$COLOR_RED[FAIL] $1 $COLOR_RESET"
 }
 
 # Perform a named action
 perform_action() {
-  echo "$COLOR_GREEN[EXEC] $1 $COLOR_RESET"
+  echo -e "$COLOR_GREEN[EXEC] $1 $COLOR_RESET"
 }
 
 # Skip a named action
 skip_action() {
-  echo "$COLOR_YELLOW[SKIP] $1 $COLOR_RESET"
+  echo -e "$COLOR_YELLOW[SKIP] $1 $COLOR_RESET"
 }
 
 # Ensure that a symlink exists to a file
