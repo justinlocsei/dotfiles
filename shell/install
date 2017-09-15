@@ -1,0 +1,7 @@
+#!/bin/bash
+
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$CURRENT_DIR/../install-helpers"
+
+ensure_symlink_exists "inputrc" "$CURRENT_DIR/config/.inputrc" "$HOME/.inputrc"
+ensure_symlink_exists "editrc" "$CURRENT_DIR/config/.editrc" "$HOME/.editrc"
