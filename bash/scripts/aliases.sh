@@ -9,20 +9,6 @@ fi
 alias sbp="source ~/.bash_profile"
 alias vbp="vi ~/.bash_profile"
 
-# Ruby
-alias bcon="bundle exec rails console"
-alias bcuke="bundle exec cucumber"
-alias be="bundle exec"
-alias brails="bundle exec rails"
-alias brake="bundle exec rake"
-alias bspec="bundle exec rspec"
-alias zcon="zeus console"
-alias zcuke="zeus cucumber"
-alias zrake="zeus rake"
-alias zs="zeus server"
-alias zspec="zeus rspec"
-alias zu="zeus start"
-
 # Git
 alias gba="git branch -a"
 alias gca="git commit -a"
@@ -31,25 +17,7 @@ alias gd="git diff"
 alias gl="git log"
 alias gs="git status"
 
-# Node.js
-alias npe='PATH=$(npm bin):$PATH'
-alias npr="npm run"
-alias npg="npe gulp"
-
-# Tmux
-alias tma="tmux attach"
-
 # Show all processes that match a name
 pag() {
   ps aux | grep -v grep | grep -e "$1"
-}
-
-# Install an NPM package and save it in the package manifest dependencies
-npis() {
-  npm install "$1" --save
-}
-
-# Install an NPM package and save it in the package manifest's dev dependencies
-npisd() {
-  npm install "$1" --save-dev
 }
