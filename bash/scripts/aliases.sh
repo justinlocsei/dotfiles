@@ -21,3 +21,14 @@ alias gs="git status"
 pag() {
   ps aux | grep -v grep | grep -e "$1"
 }
+
+# Run a command a given number of times
+run_times() {
+  local index
+
+  for ((index=1; index <= $(($1)); index++)); do
+    echo "-> Run $index"
+    "${@:2}"
+    echo
+  done
+}
