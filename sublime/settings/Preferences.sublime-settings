@@ -34,7 +34,8 @@
 	"ignored_packages":
 	[
 		"Markdown",
-		"RSpec"
+		"RSpec",
+		"SublimeLinter-shellcheck"
 	],
 	"indent_guide_options":
 	[
