@@ -1,8 +1,8 @@
 [
-	{ "keys": ["alt+up"], "command": "swap_line_up" },
-	{ "keys": ["alt+down"], "command": "swap_line_down" },
-	{ "keys": ["super+l"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
-	{ "keys": ["ctrl+super+space"], "command": "python_auto_import"},
-	{ "keys": ["shift+super+x"], "command": "prefixr" },
-	{ "keys": ["super+shift+r"], "command": "side_bar_move" }
+  { "keys": ["alt+up"], "command": "swap_line_up" },
+  { "keys": ["alt+down"], "command": "swap_line_down" },
+  { "keys": ["super+l"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
+  { "keys": ["ctrl+super+space"], "command": "python_auto_import"},
+  { "keys": ["shift+super+x"], "command": "prefixr" },
+  { "keys": ["super+shift+r"], "command": "side_bar_move" }
 ]
