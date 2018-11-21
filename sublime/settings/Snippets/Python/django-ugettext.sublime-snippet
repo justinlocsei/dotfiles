@@ -1,7 +1,0 @@
-<snippet>
-  <content><![CDATA[
-from django.utils.translation import ugettext_lazy as _
-]]></content>
-  <tabTrigger>dju</tabTrigger>
-  <scope>source.python</scope>
-</snippet>

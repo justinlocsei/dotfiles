@@ -4,6 +4,6 @@ describe('${1:description}', function() {
   $0
 });
 ]]></content>
-  <tabTrigger>describe</tabTrigger>
+  <tabTrigger>mdesc</tabTrigger>
   <scope>source.js</scope>
 </snippet>

@@ -1,9 +1,0 @@
-<snippet>
-  <content><![CDATA[
-puts "------------------------------------------------------" # TODO: delete me
-puts $0 # TODO: delete me
-puts "------------------------------------------------------" # TODO: delete me
-]]></content>
-  <tabTrigger>lb</tabTrigger>
-  <scope>source.ruby</scope>
-</snippet>
