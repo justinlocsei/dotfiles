@@ -3,7 +3,6 @@
 	"auto_complete_commit_on_tab": true,
 	"auto_complete_selector": "source, text",
 	"bold_folder_labels": true,
-	"color_scheme": "Packages/User/Monokai (SL).tmTheme",
 	"detect_slow_plugins": true,
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
@@ -29,24 +28,13 @@
 		"*.db",
 		"*.scssc"
 	],
-	"font_size": 10.0,
+	"font_size": 10,
 	"highlight_line": true,
-	"ignored_packages":
-	[
-		"Markdown",
-		"RSpec",
-		"SublimeLinter-shellcheck"
-	],
+	"ignored_packages": [],
 	"indent_guide_options":
 	[
 		"draw_active"
 	],
-	"match_brackets": false,
-	"match_brackets_angle": false,
-	"match_brackets_braces": false,
-	"match_brackets_content": false,
-	"match_brackets_square": false,
-	"match_tags": false,
 	"open_files_in_new_window": false,
 	"preview_on_click": false,
 	"rulers":
@@ -56,7 +44,7 @@
 	"scroll_past_end": false,
 	"show_full_path": true,
 	"tab_size": 2,
-	"theme": "Soda Dark.sublime-theme",
+	"theme": "Adaptive.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"vintage_start_in_command_mode": true,
