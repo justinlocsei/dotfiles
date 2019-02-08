@@ -3,6 +3,7 @@
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$CURRENT_DIR/../install-helpers"
 
+SUBLIME_CMD="/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
 SUBLIME_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
 
 cd "$CURRENT_DIR/settings" || exit 1
@@ -14,3 +15,5 @@ for setting in *; do
   fi
   ensure_symlink_exists "Sublime preference: $setting" "$PWD/$setting" "$SUBLIME_DIR/$setting"
 done
+
+ensure_symlink_exists "Sublime executable" "$SUBLIME_CMD" "$HOME/bin/sublime"
