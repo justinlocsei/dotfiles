@@ -8,12 +8,20 @@
 [core]
 	editor = /usr/bin/vim
 	precomposeunicode = false
+[color]
+	ui = true
 [merge]
 	log = 50
 	summary = true
-[color]
-	ui = true
-[difftool]
-	prompt = false
+	tool = Kaleidoscope
 [mergetool]
 	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
