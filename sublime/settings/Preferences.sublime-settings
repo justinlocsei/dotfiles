@@ -2,6 +2,7 @@
 	"auto_close_tags": false,
 	"auto_complete_commit_on_tab": true,
 	"auto_complete_selector": "source, text",
+	"block_caret": false,
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
 	"detect_slow_plugins": true,
@@ -38,6 +39,7 @@
 	[
 		"draw_active"
 	],
+	"mini_diff": false,
 	"open_files_in_new_window": false,
 	"preview_on_click": false,
 	"rulers":
@@ -52,6 +54,5 @@
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"vintage_start_in_command_mode": true,
-	"word_wrap": false,
-	"mini_diff": false
+	"word_wrap": false
 }
