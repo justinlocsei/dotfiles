@@ -2,5 +2,7 @@
   { "keys": ["alt+up"], "command": "swap_line_up" },
   { "keys": ["alt+down"], "command": "swap_line_down" },
   { "keys": ["super+l"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
-  { "keys": ["super+shift+r"], "command": "side_bar_rename" }
+  { "keys": ["super+shift+r"], "command": "side_bar_rename" },
+  { "keys": ["super+k", "super+j"], "command": "typescript_quick_info_doc" },
+  { "keys": ["super+k", "super+r"], "command": "typescript_find_references" }
 ]

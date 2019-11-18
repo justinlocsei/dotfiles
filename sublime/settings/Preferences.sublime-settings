@@ -30,7 +30,7 @@
 		"*.db",
 		"*.scssc"
 	],
-	"font_size": 10,
+	"font_size": 12,
 	"highlight_line": true,
 	"ignored_packages":
 	[
