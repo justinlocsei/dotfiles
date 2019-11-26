@@ -1,6 +1,6 @@
 {
   "live_mode": false,
   "non_blocking": true,
-  "git_binary": "/usr/bin/git",
+  "git_binary": "/usr/local/bin/git",
   "show_line_annotation": false
 }
