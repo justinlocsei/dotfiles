@@ -3,5 +3,5 @@
 console.error($0); // TODO: delete me
 ]]></content>
 	<tabTrigger>cl</tabTrigger>
-	<scope>source.js, source.ts</scope>
+	<scope>source.js, source.ts, source.tsx</scope>
 </snippet>
