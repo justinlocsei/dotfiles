@@ -5,8 +5,6 @@
 	],
 	"installed_packages":
 	[
-		"AsciiDoc",
-		"Babel",
 		"BetterFindBuffer",
 		"DocBlockr",
 		"Dockerfile Syntax Highlighting",
@@ -15,9 +13,7 @@
 		"Git",
 		"GitGutter",
 		"Gitignore",
-		"JavaScriptNext - ES6 Syntax",
 		"JSON Reindent",
-		"JSX",
 		"Liquid",
 		"MarkdownPreview",
 		"MDX Syntax Highlighting",
@@ -28,6 +24,6 @@
 		"SideBarEnhancements",
 		"Syntax Highlighting for Sass",
 		"TypeScript",
-		"Wrap Plus"
-	]
+		"Wrap Plus",
+	],
 }
