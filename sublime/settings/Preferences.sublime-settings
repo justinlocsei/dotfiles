@@ -1,7 +1,7 @@
 {
 	"auto_close_tags": false,
 	"auto_complete_commit_on_tab": true,
-	"auto_complete_selector": "source, text",
+	"auto_complete_selector": "source",
 	"block_caret": false,
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
