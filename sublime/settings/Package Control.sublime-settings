@@ -1,0 +1,33 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AsciiDoc",
+		"Babel",
+		"BetterFindBuffer",
+		"DocBlockr",
+		"Dockerfile Syntax Highlighting",
+		"EditorConfig",
+		"Focus Last Tab",
+		"Git",
+		"GitGutter",
+		"Gitignore",
+		"JavaScriptNext - ES6 Syntax",
+		"JSON Reindent",
+		"JSX",
+		"Liquid",
+		"MarkdownPreview",
+		"MDX Syntax Highlighting",
+		"Package Control",
+		"Rake",
+		"requirementstxt",
+		"RSpec",
+		"SideBarEnhancements",
+		"Syntax Highlighting for Sass",
+		"TypeScript",
+		"Wrap Plus"
+	]
+}

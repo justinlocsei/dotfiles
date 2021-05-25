@@ -6,14 +6,10 @@ source "$CURRENT_DIR/../install-helpers"
 SUBLIME_CMD="/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
 SUBLIME_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
 
-cd "$CURRENT_DIR/settings" || exit 1
+if [[ -d "$SUBLIME_DIR" ]]; then
+  perform_action "Removing existing Sublime preferences: $SUBLIME_DIR"
+  rm -R "${SUBLIME_DIR:?}"
+fi
 
-for setting in *; do
-  if [[ -e "$SUBLIME_DIR/$setting" && ! -L "$SUBLIME_DIR/$setting" ]]; then
-    perform_action "Removing existing Sublime preference: $setting"
-    rm -R "${SUBLIME_DIR:?}/$setting"
-  fi
-  ensure_symlink_exists "Sublime preference: $setting" "$PWD/$setting" "$SUBLIME_DIR/$setting"
-done
-
+ensure_symlink_exists "Sublime preferences" "$PWD/settings" "$SUBLIME_DIR"
 ensure_symlink_exists "Sublime executable" "$SUBLIME_CMD" "$HOME/bin/sublime"
