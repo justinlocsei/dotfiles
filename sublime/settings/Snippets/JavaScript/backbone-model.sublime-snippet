@@ -1,9 +1,0 @@
-<snippet>
-	<content><![CDATA[
-App.${1:model} = Backbone.Model.extend({
-	$0
-});
-]]></content>
-	<tabTrigger>bme</tabTrigger>
-	<scope>source.js</scope>
-</snippet>
