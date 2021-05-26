@@ -1,6 +1,7 @@
 {
 	"auto_close_tags": false,
 	"auto_complete_commit_on_tab": true,
+	"auto_complete_preserve_order": "strict",
 	"auto_complete_selector": "source",
 	"block_caret": false,
 	"bold_folder_labels": true,
