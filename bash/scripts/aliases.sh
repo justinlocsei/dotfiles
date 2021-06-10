@@ -17,6 +17,10 @@ alias gd="git diff"
 alias gl="git log"
 alias gs="git status"
 
+# Kubernetes
+alias kcg="kubectl get"
+alias kcd="kubectl describe"
+
 # Show all processes that match a name
 pag() {
   ps aux | grep -v grep | grep -e "$1"
