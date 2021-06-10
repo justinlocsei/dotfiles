@@ -18,8 +18,9 @@ alias gl="git log"
 alias gs="git status"
 
 # Kubernetes
-alias kcg="kubectl get"
 alias kcd="kubectl describe"
+alias kcg="kubectl get"
+alias kcl="kubectl logs"
 
 # Show all processes that match a name
 pag() {
