@@ -1,7 +1,0 @@
-<snippet>
-	<content><![CDATA[
-$0 # TODO: delete me
-]]></content>
-	<tabTrigger>tdm</tabTrigger>
-	<scope>source.ruby</scope>
-</snippet>

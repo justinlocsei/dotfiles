@@ -1,7 +1,0 @@
-<snippet>
-	<content><![CDATA[
-console.log($0); // TODO: delete me
-]]></content>
-	<tabTrigger>cl</tabTrigger>
-	<scope>source.js, source.ts, source.tsx</scope>
-</snippet>

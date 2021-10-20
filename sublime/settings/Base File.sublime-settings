@@ -1,7 +1,0 @@
-{
-  "jsdocs_align_tags": "no",
-  "jsdocs_deep_indent": false,
-  "jsdocs_lower_case_primitives": true,
-  "jsdocs_return_tag": "@returns",
-  "jsdocs_spacer_between_sections": "after_description"
-}
