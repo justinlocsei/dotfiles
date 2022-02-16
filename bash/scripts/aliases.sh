@@ -22,6 +22,11 @@ alias kcd="kubectl describe"
 alias kcg="kubectl get"
 alias kcl="kubectl logs"
 
+# Search for Docker images
+dil() {
+  docker image ls | grep "$1"
+}
+
 # Show all processes that match a name
 pag() {
   ps aux | grep -v grep | grep -e "$1"
