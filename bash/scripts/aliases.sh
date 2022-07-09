@@ -16,6 +16,7 @@ alias gco="git checkout"
 alias gd="git diff"
 alias gl="git log"
 alias gs="git status"
+alias grpo="git remote prune origin"
 
 # Kubernetes
 alias kcd="kubectl describe"
