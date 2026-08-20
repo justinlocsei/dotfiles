@@ -1,0 +1,21 @@
+#!/bin/bash
+
+CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$CURRENT_DIR/../install-helpers"
+
+PROFILE="$HOME/.zshrc"
+touch "$PROFILE"
+
+cd "$CURRENT_DIR/scripts" || exit 1
+
+for script in *.sh; do
+  source_line="source $PWD/$script"
+  if ! grep -Fqx "$source_line" "$PROFILE"; then
+    perform_action "Sourcing $script in zsh profile"
+    echo "$source_line" >> "$PROFILE"
+  else
+    skip_action "Already sourcing $script in zsh profile"
+  fi
+done
+
+source "$PROFILE"
