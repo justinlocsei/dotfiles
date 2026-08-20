@@ -1,5 +1,7 @@
+# shellcheck shell=bash
+
 # Use an OS-specific rich-list function
-if [[ `uname -s` == "Darwin" ]]; then
+if [[ "$(uname -s)" == "Darwin" ]]; then
   alias ll="ls -Glh"
 else
   alias ll="ls -lh --color=auto"
