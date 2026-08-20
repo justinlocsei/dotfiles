@@ -16,7 +16,6 @@ style_path="%{${RESET}${SOLAR_GREEN}%}"
 style_chars="%{${RESET}${SOLAR_WHITE}%}"
 style_important="%{${RESET}${BOLD}${SOLAR_BLUE}%}"
 style_branch="%{${SOLAR_CYAN}%}"
-style_virtualenv="%{${BOLD}${SOLAR_ORANGE}%}"
 style_reset="%{${RESET}%}"
 
 # Show the commit status of the current git repo
@@ -50,16 +49,6 @@ function prompt_git() {
   print -n "${style_chars} on ${style_branch}${output}$(git_repo_state)"
 }
 
-# Show the name of the current virtualenv
-function prompt_virtualenv() {
-  local env_name
-  env_name="${VIRTUAL_ENV:t}"
-
-  if [[ -n "$env_name" ]]; then
-    print -n " ${style_virtualenv}[env/${env_name}]"
-  fi
-}
-
 # Build the prompt
 setopt prompt_subst
 PROMPT=$'\n'
@@ -70,7 +59,6 @@ PROMPT+="${style_user}%n${style_chars}@${style_host}%m"
 PROMPT+="${style_chars}: ${style_path}%~"
 if [[ -z "$SSH_TTY" ]]; then
   PROMPT+='$(prompt_git)'
-  PROMPT+='$(prompt_virtualenv)'
 fi
 PROMPT+=$'\n'
 PROMPT+="${style_chars}%# ${style_reset}"
