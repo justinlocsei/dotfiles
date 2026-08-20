@@ -20,23 +20,23 @@ style_reset="%{${RESET}%}"
 
 # Show the commit status of the current git repo
 function git_repo_state() {
-  local status
-  status="$(git status 2>/dev/null | tail -n1)"
-  [[ $status != *"nothing to commit"* ]] && print -n "[!]"
+  local git_status
+  git_status="$(git status 2>/dev/null | tail -n1)"
+  [[ $git_status != *"nothing to commit"* ]] && print -n "[!]"
 }
 
 # Show the name and status of the current git repo
 function prompt_git() {
-  local status output flags
-  status="$(git status 2>/dev/null)"
+  local git_status output flags
+  git_status="$(git status 2>/dev/null)"
   [[ $? != 0 ]] && return
 
-  output="$(echo "$status" | awk '/# Initial commit/ {print "(init)"}')"
-  [[ "$output" ]] || output="$(echo "$status" | awk '/# On branch/ {print $4}')"
+  output="$(echo "$git_status" | awk '/# Initial commit/ {print "(init)"}')"
+  [[ "$output" ]] || output="$(echo "$git_status" | awk '/# On branch/ {print $4}')"
   [[ "$output" ]] || output="$(git branch | perl -ne '/^\* (.*)/ && print $1')"
 
   flags="$(
-    echo "$status" | awk 'BEGIN {r=""} \
+    echo "$git_status" | awk 'BEGIN {r=""} \
       /^# Changes to be committed:$/        {r=r "+"}\
       /^# Changes not staged for commit:$/  {r=r "!"}\
       /^# Untracked files:$/                {r=r "?"}\
@@ -44,7 +44,7 @@ function prompt_git() {
   )"
 
   if [[ "$flags" ]]; then
-    output="$output[$flags]"
+    output="${output}[$flags]"
   fi
   print -n "${style_chars} on ${style_branch}${output}$(git_repo_state)"
 }
