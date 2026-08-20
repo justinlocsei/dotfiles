@@ -7,10 +7,12 @@ cd "$CURRENT_DIR" || exit 1
 
 for module in *; do
   module_path="$CURRENT_DIR/$module"
+
   if [[ -d "$module_path" && ! -L "$module_path" ]]; then
     if [[ -f "$module_path/install" ]]; then
       show_module_title "$module"
       "$module_path"/install
+
       echo
     fi
   fi

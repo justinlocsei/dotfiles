@@ -10,6 +10,7 @@ cd "$CURRENT_DIR/scripts" || exit 1
 
 for script in *.sh; do
   source_line="source $PWD/$script"
+
   if ! grep "$source_line" "$PROFILE" -q; then
     perform_action "Sourcing $script in bash profile"
     echo "$source_line" >> "$PROFILE"
