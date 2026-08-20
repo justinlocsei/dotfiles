@@ -18,11 +18,6 @@ alias gl="git log"
 alias gs="git status"
 alias grpo="git remote prune origin"
 
-# Kubernetes
-alias kcd="kubectl describe"
-alias kcg="kubectl get"
-alias kcl="kubectl logs"
-
 # Search for Docker images
 dil() {
   docker image ls | grep "$1"
