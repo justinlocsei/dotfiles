@@ -1,20 +1,20 @@
 [user]
-	name = Justin Locsei
-	email = justin.locsei@gmail.com
+  name = Justin Locsei
+  email = justin.locsei@gmail.com
 [push]
-	default = simple
+  default = simple
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 [pull]
-	rebase = true
+  rebase = true
 [core]
-	pager =
+  pager =
 [merge]
-	log = 50
-	tool = vscode
+  log = 50
+  tool = vscode
 [mergetool "vscode"]
-	cmd = code --wait $MERGED
+  cmd = code --wait $MERGED
 [diff]
-	tool = vscode
+  tool = vscode
 [difftool "vscode"]
-	cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\"
+  cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\"
