@@ -17,5 +17,3 @@ for script in *.sh; do
     skip_action "Already sourcing $script in zsh profile"
   fi
 done
-
-source "$PROFILE"
