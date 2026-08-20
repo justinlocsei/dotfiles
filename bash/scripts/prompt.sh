@@ -45,7 +45,7 @@ function prompt_git() {
   )"
 
   if [[ "$flags" ]]; then
-    output="${output[$flags]}"
+    output="${output}[$flags]"
   fi
   echo -ne "${SOLAR_WHITE} on ${style_branch}${output}$(git_repo_state)"
 }
