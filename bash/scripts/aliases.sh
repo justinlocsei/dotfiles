@@ -18,6 +18,15 @@ alias gl="git log"
 alias gs="git status"
 alias grpo="git remote prune origin"
 
+# Quietly run npm scripts
+nr() {
+  if [ $# -eq 0 ]; then
+    npm run
+  else
+    npm run -s "$@"
+  fi
+}
+
 # Search for Docker images
 dil() {
   docker image ls | grep "$1"
