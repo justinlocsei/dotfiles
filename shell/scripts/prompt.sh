@@ -10,7 +10,7 @@ SOLAR_YELLOW=$(tput setaf 136)
 # Wrap control sequences to prevent parsing as prompt text
 #
 # @param $1 The style to wrap
-jlocsei_style() {
+__dotfiles_style() {
   if [ -n "$BASH_VERSION" ]; then
     printf '\[%s%s\]' "$RESET" "$1"
   else
@@ -19,7 +19,7 @@ jlocsei_style() {
 }
 
 # Show the name and status of the current git repo
-jlocsei_git_repo() {
+__dotfiles_git_repo() {
   local branch git_status
 
   branch="$(git branch --show-current 2>/dev/null)" || return
@@ -28,7 +28,7 @@ jlocsei_git_repo() {
   git_status="$(git status --porcelain 2>/dev/null)"
   [ -n "$git_status" ] && git_status="[!]"
 
-  printf '%s' "$(jlocsei_style "$SOLAR_WHITE") on $(jlocsei_style "$SOLAR_CYAN")$branch$git_status"
+  printf '%s' "$(__dotfiles_style "$SOLAR_WHITE") on $(__dotfiles_style "$SOLAR_CYAN")$branch$git_status"
 }
 
 # Build the prompt string for the given shell
@@ -55,16 +55,16 @@ build_prompt() {
   esac
 
   prompt=$newline
-  prompt+="$(jlocsei_style "$SOLAR_ORANGE")$user$(jlocsei_style "$SOLAR_WHITE")@$(jlocsei_style "$SOLAR_YELLOW")$host"
-  prompt+="$(jlocsei_style "$SOLAR_WHITE"): $(jlocsei_style "$SOLAR_GREEN")$path"
+  prompt+="$(__dotfiles_style "$SOLAR_ORANGE")$user$(__dotfiles_style "$SOLAR_WHITE")@$(__dotfiles_style "$SOLAR_YELLOW")$host"
+  prompt+="$(__dotfiles_style "$SOLAR_WHITE"): $(__dotfiles_style "$SOLAR_GREEN")$path"
 
   case "$1" in
-    bash) prompt+='\$(jlocsei_git_repo)' ;;
-    zsh) prompt+='$(jlocsei_git_repo)' ;;
+    bash) prompt+='\$(__dotfiles_git_repo)' ;;
+    zsh) prompt+='$(__dotfiles_git_repo)' ;;
   esac
 
   prompt+=$newline
-  prompt+="$(jlocsei_style "$SOLAR_WHITE")$prefix $(jlocsei_style)"
+  prompt+="$(__dotfiles_style "$SOLAR_WHITE")$prefix $(__dotfiles_style)"
 
   printf '%s' "$prompt"
 }
