@@ -1,16 +1,21 @@
 # shellcheck shell=bash
 
 # Print a character-based divider that spans the screen
+#
+# @param $1 The character to use
 show_divider() {
   printf "%*s" "$(tput cols)" "" | tr " " "$1"
   echo
 }
 
 # Print the title of a module, wrapped by dividers
+#
+# @param $1 The module name
 show_module_title() {
   show_divider "="
   echo "Module: $1"
   show_divider "="
+
   echo
 }
 
@@ -18,7 +23,7 @@ show_module_title() {
 #
 # @param $1 The color to use
 # @param $2 The action state
-# @param $3 The action name
+# @param $3 The message
 log_action() {
   local esc_seq="\x1b["
 
@@ -27,50 +32,57 @@ log_action() {
 
 # Show a failed action
 #
-# @param $1 The action name
+# @param $1 A message
 fail_action() {
   log_action "31;01m" "FAIL" "$1"
 }
 
-# Perform a named action
+# Execute an action
 #
-# @param $1 The action name
+# @param $1 A message
 perform_action() {
   log_action "32;01m" "EXEC" "$1"
 }
 
-# Skip a named action
+# SKip an action
 #
-# @param $1 The action name
+# @param $1 A message
 skip_action() {
   log_action "33;01m" "SKIP" "$1"
 }
 
 # Ensure that a symlink exists to a file
+#
+# @param $1 The description of the symlink
+# @param $2 The source file
+# @param $3 The target file
 ensure_symlink_exists() {
-  description=$1
-  source=$2
-  target=$3
+  local description=$1
+  local source=$2
+  local target=$3
 
   if [[ -L "$target" ]]; then
-    skip_action "A link to the $description already exists"
+    skip_action "${description}: link exists"
   elif [[ -f "$target" ]]; then
-    fail_action "A non-link $description already exists"
+    fail_action "${description}: file exists"
   else
-    perform_action "Creating a symlink to the $description"
+    perform_action "${description}: creating symlink"
     ln -s "$source" "$target"
   fi
 }
 
 # Ensure that a directory exists
+#
+# @param $1 The description of the directory
+# @param $2 The path of the directory
 ensure_directory_exists() {
-  description=$1
-  path=$2
+  local description=$1
+  local path=$2
 
   if [[ -d "$path" ]]; then
-    skip_action "The $description directory already exists"
+    skip_action "${description}: directory exists"
   else
-    perform_action "Creating the $description directory"
+    perform_action "${description}: creating directory"
     mkdir "$path"
   fi
 }
