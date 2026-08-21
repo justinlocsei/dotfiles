@@ -28,7 +28,7 @@ jlocsei_git_repo() {
   status="$(git status --porcelain 2>/dev/null)"
   [ -n "$status" ] || status="[!]"
 
-  printf '%s' "$(jlocsei_style "$SOLAR_WHITE") on $(jlocsei_style "$SOLAR_CYAN")${branch}${status}"
+  printf '%s' "$(jlocsei_style "$SOLAR_WHITE") on $(jlocsei_style "$SOLAR_CYAN")$branch$status"
 }
 
 # Build the prompt string for the given shell
@@ -57,11 +57,11 @@ build_prompt() {
   esac
 
   prompt=$newline
-  prompt+="$(jlocsei_style "$SOLAR_ORANGE")${user}$(jlocsei_style "$SOLAR_WHITE")@$(jlocsei_style "$SOLAR_YELLOW")${host}"
-  prompt+="$(jlocsei_style "$SOLAR_WHITE"): $(jlocsei_style "$SOLAR_GREEN")${path}"
-  prompt+="${branch}"
+  prompt+="$(jlocsei_style "$SOLAR_ORANGE")$user$(jlocsei_style "$SOLAR_WHITE")@$(jlocsei_style "$SOLAR_YELLOW")$host"
+  prompt+="$(jlocsei_style "$SOLAR_WHITE"): $(jlocsei_style "$SOLAR_GREEN")$path"
+  prompt+="$branch"
   prompt+=$newline
-  prompt+="$(jlocsei_style "$SOLAR_WHITE")${prefix} $(jlocsei_style)"
+  prompt+="$(jlocsei_style "$SOLAR_WHITE")$prefix $(jlocsei_style)"
 
   printf '%s' "$prompt"
 }
