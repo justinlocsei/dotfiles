@@ -29,7 +29,7 @@ source_scripts() {
   done
 }
 
-source_scripts "$repository_path/shell/scripts" "$repository_path/shell/scripts/source.sh"
+source_scripts "$repository_path/shell/scripts" ""
 source_scripts "$repository_path/$shell_name/scripts" ""
 
 unset -f source_scripts
