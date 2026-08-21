@@ -10,7 +10,7 @@ SOLAR_YELLOW=$(tput setaf 136)
 # Wrap control sequences to prevent parsing as prompt text
 #
 # @param $1 The style to wrap
-prompt_style() {
+jlocsei_style() {
   if [ -n "$BASH_VERSION" ]; then
     printf '\[%s%s\]' "$RESET" "$1"
   else
@@ -18,36 +18,17 @@ prompt_style() {
   fi
 }
 
-# Show the commit status of the current git repo
-git_repo_state() {
-  local git_status
-  git_status="$(git status 2>/dev/null | tail -n1)"
-
-  [[ $git_status != *"nothing to commit"* ]] && printf '%s' "[!]"
-}
-
 # Show the name and status of the current git repo
-prompt_git() {
-  local flags git_status output
-  git_status="$(git status 2>/dev/null)" || return
+jlocsei_git_repo() {
+  local branch status
 
-  output="$(printf '%s\n' "$git_status" | awk '/# Initial commit/ {print "(init)"}')"
-  [[ "$output" ]] || output="$(printf '%s\n' "$git_status" | awk '/# On branch/ {print $4}')"
-  [[ "$output" ]] || output="$(git branch | perl -ne '/^\* (.*)/ && print $1')"
+  branch="$(git branch --show-current 2>/dev/null)" || return
+  [ -n "$branch" ] || return
 
-  flags="$(
-    printf '%s\n' "$git_status" | awk 'BEGIN {r=""} \
-      /^# Changes to be committed:$/        {r=r "+"}\
-      /^# Changes not staged for commit:$/  {r=r "!"}\
-      /^# Untracked files:$/                {r=r "?"}\
-      END {print r}'
-  )"
+  status="$(git status --porcelain 2>/dev/null)"
+  [ -n "$status" ] || status="[!]"
 
-  if [[ "$flags" ]]; then
-    output="${output}[$flags]"
-  fi
-
-  printf '%s' "$(prompt_style "$SOLAR_WHITE") on $(prompt_style "$SOLAR_CYAN")${output}$(git_repo_state)"
+  printf '%s' "$(jlocsei_style "$SOLAR_WHITE") on $(jlocsei_style "$SOLAR_CYAN")${branch}${status}"
 }
 
 # Build the prompt string for the given shell
@@ -58,7 +39,7 @@ build_prompt() {
 
   case "$1" in
     bash)
-      branch='\$(prompt_git)'
+      branch='\$(jlocsei_git_repo)'
       host='\h'
       newline='\n'
       path='\w'
@@ -66,7 +47,7 @@ build_prompt() {
       user='\u'
       ;;
     zsh)
-      branch='$(prompt_git)'
+      branch='$(jlocsei_git_repo)'
       host='%m'
       newline=$'\n'
       path='%~'
@@ -76,11 +57,11 @@ build_prompt() {
   esac
 
   prompt=$newline
-  prompt+="$(prompt_style "$SOLAR_ORANGE")${user}$(prompt_style "$SOLAR_WHITE")@$(prompt_style "$SOLAR_YELLOW")${host}"
-  prompt+="$(prompt_style "$SOLAR_WHITE"): $(prompt_style "$SOLAR_GREEN")${path}"
+  prompt+="$(jlocsei_style "$SOLAR_ORANGE")${user}$(jlocsei_style "$SOLAR_WHITE")@$(jlocsei_style "$SOLAR_YELLOW")${host}"
+  prompt+="$(jlocsei_style "$SOLAR_WHITE"): $(jlocsei_style "$SOLAR_GREEN")${path}"
   prompt+="${branch}"
   prompt+=$newline
-  prompt+="$(prompt_style "$SOLAR_WHITE")${prefix} $(prompt_style)"
+  prompt+="$(jlocsei_style "$SOLAR_WHITE")${prefix} $(jlocsei_style)"
 
   printf '%s' "$prompt"
 }
@@ -92,3 +73,5 @@ elif [ -n "$ZSH_VERSION" ]; then
   # shellcheck disable=SC2034
   PROMPT="$(build_prompt zsh)"
 fi
+
+unset -f build_prompt
