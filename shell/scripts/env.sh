@@ -1,4 +1,4 @@
-# shellcheck shell=bash
+# shellcheck shell=sh
 
 # Use vim as the default editor
 export EDITOR=vim

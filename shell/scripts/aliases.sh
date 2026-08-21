@@ -1,4 +1,4 @@
-# shellcheck shell=bash
+# shellcheck shell=sh
 
 # Use an OS-specific rich-list function
 if [ "$(uname -s)" = "Darwin" ]; then
