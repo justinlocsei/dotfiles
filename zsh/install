@@ -6,15 +6,12 @@ source "$CURRENT_DIR/../install-helpers"
 PROFILE="$HOME/.zshrc"
 touch "$PROFILE"
 
-cd "$CURRENT_DIR/scripts" || exit 1
+LOADER="$(cd "$CURRENT_DIR/../shell/scripts" && pwd)/source.sh"
+SOURCE_LINE="source $LOADER"
 
-for script in *.sh; do
-  source_line="source $PWD/$script"
-
-  if ! grep -Fqx "$source_line" "$PROFILE"; then
-    perform_action "Sourcing $script in zsh profile"
-    echo "$source_line" >> "$PROFILE"
-  else
-    skip_action "Already sourcing $script in zsh profile"
-  fi
-done
+if ! grep -Fqx "$SOURCE_LINE" "$PROFILE"; then
+  perform_action "Sourcing shell loader in zsh profile"
+  echo "$SOURCE_LINE" >> "$PROFILE"
+else
+  skip_action "Already sourcing shell loader in zsh profile"
+fi

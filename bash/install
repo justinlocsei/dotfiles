@@ -6,15 +6,12 @@ source "$CURRENT_DIR/../install-helpers"
 PROFILE="$HOME/.bash_profile"
 touch "$PROFILE"
 
-cd "$CURRENT_DIR/scripts" || exit 1
+LOADER="$(cd "$CURRENT_DIR/../shell/scripts" && pwd)/source.sh"
+SOURCE_LINE="source $LOADER"
 
-for script in *.sh; do
-  source_line="source $PWD/$script"
-
-  if ! grep "$source_line" "$PROFILE" -q; then
-    perform_action "Sourcing $script in bash profile"
-    echo "$source_line" >> "$PROFILE"
-  else
-    skip_action "Already sourcing $script in bash profile"
-  fi
-done
+if ! grep -Fqx "$SOURCE_LINE" "$PROFILE"; then
+  perform_action "Sourcing shell loader in bash profile"
+  echo "$SOURCE_LINE" >> "$PROFILE"
+else
+  skip_action "Already sourcing shell loader in bash profile"
+fi
