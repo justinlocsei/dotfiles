@@ -1,16 +1,16 @@
-#!/bin/bash
+#!/bin/bash -e
 
-CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$CURRENT_DIR/install-helpers"
+DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)" || exit 1
 
-cd "$CURRENT_DIR" || exit 1
+# shellcheck source=install-helpers
+source "$DOTFILES_ROOT/install-helpers"
 
-for module in *; do
-  module_path="$CURRENT_DIR/$module"
-
+for module_path in "$DOTFILES_ROOT"/*; do
   if [[ -d "$module_path" && ! -L "$module_path" ]]; then
     if [[ -f "$module_path/install" ]]; then
-      show_module_title "$module"
+      show_module_title "$(basename "$module_path")"
+
+      # shellcheck source=/dev/null
       source "$module_path/install"
 
       echo
