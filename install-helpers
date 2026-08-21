@@ -3,11 +3,9 @@
 # Resolve a path relative to the repository root
 #
 # @param $1 A root-relative path
+# @return The resolved absolute path
 child_path() {
-  local root_dir
-  root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)" || return 1
-
-  printf "%s/%s\n" "$root_dir" "$1"
+  printf "%s/%s" "${DOTFILES_ROOT:?no root directory set}" "$1"
 }
 
 # Print a character-based divider that spans the screen
