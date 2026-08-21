@@ -1,6 +1,3 @@
-#!/bin/bash
+# shellcheck shell=bash
 
-CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$CURRENT_DIR/../install-helpers"
-
-ensure_symlink_exists "git configuration file" "$CURRENT_DIR/config/gitconfig" "$HOME/.gitconfig"
+ensure_symlink_exists "git configuration file" "$(child_path git/config/gitconfig)" "$HOME/.gitconfig"

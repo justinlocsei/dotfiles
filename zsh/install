@@ -1,12 +1,10 @@
-#!/bin/bash
+# shellcheck shell=bash
 
-CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$CURRENT_DIR/../install-helpers"
+LOADER="$(child_path shell/scripts/source.sh)"
 
 PROFILE="$HOME/.zshrc"
 touch "$PROFILE"
 
-LOADER="$(cd "$CURRENT_DIR/../shell/scripts" && pwd)/source.sh"
 SOURCE_LINE="source $LOADER"
 
 if ! grep -Fqx "$SOURCE_LINE" "$PROFILE"; then

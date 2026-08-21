@@ -1,6 +1,3 @@
-#!/bin/bash
+# shellcheck shell=bash
 
-CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source "$CURRENT_DIR/../install-helpers"
-
-ensure_symlink_exists "vim configuration file" "$CURRENT_DIR/config/vimrc" "$HOME/.vimrc"
+ensure_symlink_exists "vim configuration file" "$(child_path vim/config/vimrc)" "$HOME/.vimrc"
