@@ -1,3 +1,5 @@
+# shellcheck shell=sh
+
 # Solarized colors
 # https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized
 BOLD=$(tput bold)

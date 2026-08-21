@@ -1,9 +1,4 @@
-# Use vim as the default editor
-export EDITOR=vim
+# shellcheck shell=sh
 
-# Use vi-style navigation
+# Use vi navigation
 bindkey -v
-
-# Create a directory for user executables
-mkdir -p "$HOME/bin"
-export PATH="$HOME/bin:$PATH"
