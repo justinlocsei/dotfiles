@@ -5,10 +5,8 @@
 # @param $1 The path to the loader script
 # @param $2 The name of the current shell
 load_shell_scripts() {
-  local script
-  local script_dir
+  local root_dir script script_dir
 
-  local root_dir
   root_dir="$(cd "$(dirname "$1")/.." && pwd)" || return 1
 
   for script_dir in shell "$2"; do
