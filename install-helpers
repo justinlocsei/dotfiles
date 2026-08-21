@@ -103,7 +103,7 @@ install_script_loader() {
   touch "$profile"
 
   local source_line
-  source_line="source \"$(child_path shell/load-scripts.sh)\""
+  source_line=". \"$(child_path shell/load-scripts.sh)\""
 
   if ! grep -Fqx "$source_line" "$profile"; then
     perform_action "Sourcing script loader in ${profile}"
