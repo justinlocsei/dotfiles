@@ -36,14 +36,15 @@ pag() {
 }
 
 # Run a command a given number of times
-run_times() {
-  local index
-  local count=$1
+run_times() (
+  count=$1
   shift
 
-  for index in $(seq 1 "$count"); do
+  index=1
+  while [ "$index" -le "$count" ]; do
     echo "-> Run $index"
     "$@"
     echo
+    index=$((index + 1))
   done
-}
+)
