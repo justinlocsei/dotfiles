@@ -57,12 +57,7 @@ build_prompt() {
   prompt=$newline
   prompt+="$(__dotfiles_style "$SOLAR_ORANGE")$user$(__dotfiles_style "$SOLAR_WHITE")@$(__dotfiles_style "$SOLAR_YELLOW")$host"
   prompt+="$(__dotfiles_style "$SOLAR_WHITE"): $(__dotfiles_style "$SOLAR_GREEN")$path"
-
-  case "$1" in
-    bash) prompt+='\$(__dotfiles_git_repo)' ;;
-    zsh) prompt+='$(__dotfiles_git_repo)' ;;
-  esac
-
+  prompt+='$(__dotfiles_git_repo)'
   prompt+=$newline
   prompt+="$(__dotfiles_style "$SOLAR_WHITE")$prefix $(__dotfiles_style)"
 
