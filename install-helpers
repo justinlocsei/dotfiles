@@ -1,5 +1,15 @@
 # shellcheck shell=bash
 
+# Resolve a path relative to the repository root
+#
+# @param $1 A root-relative path
+child_path() {
+  local root_dir
+  root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)" || return 1
+
+  printf "%s/%s\n" "$root_dir" "$1"
+}
+
 # Print a character-based divider that spans the screen
 #
 # @param $1 The character to use
