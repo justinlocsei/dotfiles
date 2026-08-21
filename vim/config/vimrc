@@ -13,7 +13,7 @@ set autoread
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 
-"Always show current position
+" Always show current position
 set ruler
 
 " Height of the command bar
@@ -49,8 +49,9 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" Show line numbers
+" Show line numbers and highlight the current line
 set number
+set cursorline
 
 " Enable syntax highlighting
 syntax enable
@@ -59,8 +60,8 @@ syntax enable
 colorscheme slate
 set background=dark
 
-" Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
+" Standard encoding
+set encoding=utf-8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -80,20 +81,17 @@ set smarttab
 set shiftwidth=2
 set tabstop=2
 
-" Linebreak on 500 characters
-set lbr
-set tw=500
+set ai " Auto indent
+set si " Smart indent
+set nowrap
 
-set ai "Auto indent
-set si "Smart indent
-set nowrap "Wrap lines
-
-" Treat long lines as break lines (useful when moving around in them)
-map j gj
-map k gk
+" VSCode-like usability
+set mouse=a
+set clipboard=unnamed
+set backspace=indent,eol,start
+set hidden
+set wildmenu
+set wildmode=longest:full,full
 
 " Always show the status line
 set laststatus=2
-
-" Remap VIM 0 to first non-blank character
-map 0 ^
