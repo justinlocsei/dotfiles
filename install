@@ -6,14 +6,12 @@ DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)" || exit 1
 source "$DOTFILES_ROOT/install-helpers"
 
 for path in "$DOTFILES_ROOT"/*; do
-  if [[ -d "$path" && ! -L "$path" ]]; then
-    if [[ -f "$path/install.sh" ]]; then
-      show_module_title "$(basename "$path")"
+  if [[ -f "$path/install.sh" ]]; then
+    show_module_title "$(basename "$path")"
 
-      # shellcheck source=/dev/null
-      source "$path/install.sh"
+    # shellcheck source=/dev/null
+    source "$path/install.sh"
 
-      echo
-    fi
+    echo
   fi
 done
