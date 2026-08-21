@@ -1,36 +1,29 @@
-#!/bin/bash
+# shellcheck shell=bash disable=SC1090,SC2296
 
-# Source shared scripts and scripts for the active shell
-case "${BASH_VERSION+x}:${ZSH_VERSION+x}" in
-  x:*)
-    loader_path="${BASH_SOURCE[0]}"
-    shell_name=bash
-    ;;
-  :x*)
-    loader_path="${(%):-%N}"
-    shell_name=zsh
-    ;;
-  *)
-    return 0 2>/dev/null || exit 0
-    ;;
-esac
-
-repository_path="$(cd "$(dirname "$loader_path")/../.." && pwd)" || return 1
-
-source_scripts() {
-  local scripts_path=$1
-  local loader_script=$2
+# Source shared and shell-specific scripts
+#
+# @param $1 The path to the loader script
+# @param $2 The name of the current shell
+load_shell_scripts() {
   local script
+  local script_dir
 
-  for script in "$scripts_path"/*.sh; do
-    [ -f "$script" ] || continue
-    [ "$script" = "$loader_script" ] && continue
-    . "$script"
+  local root_dir
+  root_dir="$(cd "$(dirname "$1")/.." && pwd)" || return 1
+
+  for script_dir in shell "$2"; do
+    for script in "$root_dir/$script_dir/scripts"/*.sh; do
+      if [ -f "$script" ]; then
+        . "$script"
+      fi
+    done
   done
 }
 
-source_scripts "$repository_path/shell/scripts" ""
-source_scripts "$repository_path/$shell_name/scripts" ""
+if [ -n "$BASH_VERSION" ]; then
+  load_shell_scripts "${BASH_SOURCE[0]}" bash
+elif [ -n "$ZSH_VERSION" ]; then
+  load_shell_scripts "${(%):-%N}" zsh
+fi
 
-unset -f source_scripts
-unset loader_path repository_path shell_name script scripts_path loader_script
+unset -f load_shell_scripts
