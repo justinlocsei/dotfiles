@@ -97,12 +97,3 @@ set laststatus=2
 
 " Remap VIM 0 to first non-blank character
 map 0 ^
-
-" Delete trailing white space on save
-func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
