@@ -35,11 +35,10 @@ jlocsei_git_repo() {
 #
 # @param $1 The shell name
 build_prompt() {
-  local branch host newline path prefix prompt user
+  local host newline path prefix prompt user
 
   case "$1" in
     bash)
-      branch='\$(jlocsei_git_repo)'
       host='\h'
       newline='\n'
       path='\w'
@@ -47,7 +46,6 @@ build_prompt() {
       user='\u'
       ;;
     zsh)
-      branch='$(jlocsei_git_repo)'
       host='%m'
       newline=$'\n'
       path='%~'
@@ -59,7 +57,12 @@ build_prompt() {
   prompt=$newline
   prompt+="$(jlocsei_style "$SOLAR_ORANGE")$user$(jlocsei_style "$SOLAR_WHITE")@$(jlocsei_style "$SOLAR_YELLOW")$host"
   prompt+="$(jlocsei_style "$SOLAR_WHITE"): $(jlocsei_style "$SOLAR_GREEN")$path"
-  prompt+="$branch"
+
+  case "$1" in
+    bash) prompt+='\$(jlocsei_git_repo)' ;;
+    zsh) prompt+='$(jlocsei_git_repo)' ;;
+  esac
+
   prompt+=$newline
   prompt+="$(jlocsei_style "$SOLAR_WHITE")$prefix $(jlocsei_style)"
 
