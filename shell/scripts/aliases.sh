@@ -1,20 +1,13 @@
 # shellcheck shell=sh
 
-# Use an OS-specific rich-list function
-if [ "$(uname -s)" = "Darwin" ]; then
-  alias ll="ls -Glh"
-else
-  alias ll="ls -lh --color=auto"
-fi
-
-# Git
 alias gba="git branch -a"
 alias gca="git commit -a"
 alias gco="git checkout"
 alias gd="git diff"
 alias gl="git log"
-alias gs="git status"
 alias grpo="git remote prune origin"
+alias gs="git status"
+alias ll="ls -lh --color=auto"
 
 # Quietly run npm scripts
 nr() {
