@@ -65,18 +65,11 @@ skip_action() {
 # @param $2 The source file
 # @param $3 The target file
 ensure_symlink_exists() {
-  local description=$1
-  local source=$2
   local target=$3
 
-  if [[ -L "$target" ]]; then
-    skip_action "${description}: link exists"
-  elif [[ -f "$target" ]]; then
-    fail_action "${description}: file exists"
-  else
-    perform_action "${description}: creating symlink"
-    ln -s "$source" "$target"
-  fi
+  rm -f "$target"
+  perform_action "Link to $1"
+  ln -s "$2" "$target"
 }
 
 # Ensure that a directory exists
