@@ -94,3 +94,21 @@ ensure_directory_exists() {
     mkdir "$path"
   fi
 }
+
+# Ensure that the shared script loader appears in a shell profile
+#
+# @param $1 The profile path
+install_script_loader() {
+  local profile=$1
+  touch "$profile"
+
+  local source_line
+  source_line="source \"$(child_path shell/load-scripts.sh)\""
+
+  if ! grep -Fqx "$source_line" "$profile"; then
+    perform_action "Sourcing script loader in ${profile}"
+    echo "$source_line" >> "$profile"
+  else
+    skip_action "Already sourcing script loader in ${profile}"
+  fi
+}
