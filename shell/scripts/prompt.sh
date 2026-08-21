@@ -26,7 +26,7 @@ jlocsei_git_repo() {
   [ -n "$branch" ] || return
 
   status="$(git status --porcelain 2>/dev/null)"
-  [ -n "$status" ] || status="[!]"
+  [ -n "$status" ] && status="[!]"
 
   printf '%s' "$(jlocsei_style "$SOLAR_WHITE") on $(jlocsei_style "$SOLAR_CYAN")$branch$status"
 }
