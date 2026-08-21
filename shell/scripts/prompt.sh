@@ -20,15 +20,15 @@ jlocsei_style() {
 
 # Show the name and status of the current git repo
 jlocsei_git_repo() {
-  local branch status
+  local branch git_status
 
   branch="$(git branch --show-current 2>/dev/null)" || return
   [ -n "$branch" ] || return
 
-  status="$(git status --porcelain 2>/dev/null)"
-  [ -n "$status" ] && status="[!]"
+  git_status="$(git status --porcelain 2>/dev/null)"
+  [ -n "$git_status" ] && git_status="[!]"
 
-  printf '%s' "$(jlocsei_style "$SOLAR_WHITE") on $(jlocsei_style "$SOLAR_CYAN")$branch$status"
+  printf '%s' "$(jlocsei_style "$SOLAR_WHITE") on $(jlocsei_style "$SOLAR_CYAN")$branch$git_status"
 }
 
 # Build the prompt string for the given shell
