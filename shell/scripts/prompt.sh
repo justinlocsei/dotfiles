@@ -51,7 +51,7 @@ build_prompt() {
       host='%m'
       newline=$'\n'
       path='%~'
-      prefix='%#'
+      prefix='$'
       user='%n'
       ;;
   esac
