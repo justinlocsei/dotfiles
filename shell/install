@@ -1,4 +1,0 @@
-# shellcheck shell=bash
-
-ensure_symlink_exists "inputrc" "$(child_path shell/config/.inputrc)" "$HOME/.inputrc"
-ensure_symlink_exists "editrc" "$(child_path shell/config/.editrc)" "$HOME/.editrc"

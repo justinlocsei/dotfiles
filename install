@@ -7,11 +7,11 @@ source "$DOTFILES_ROOT/install-helpers"
 
 for module_path in "$DOTFILES_ROOT"/*; do
   if [[ -d "$module_path" && ! -L "$module_path" ]]; then
-    if [[ -f "$module_path/install" ]]; then
+    if [[ -f "$module_path/install.sh" ]]; then
       show_module_title "$(basename "$module_path")"
 
       # shellcheck source=/dev/null
-      source "$module_path/install"
+      source "$module_path/install.sh"
 
       echo
     fi
