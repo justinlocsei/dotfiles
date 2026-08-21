@@ -12,7 +12,11 @@ SOLAR_YELLOW=$(tput setaf 136)
 # @param $1 The style to wrap
 __dotfiles_style() {
   if [ -n "$BASH_VERSION" ]; then
-    printf '\[%s%s\]' "$RESET" "$1"
+    if [ "$2" = "raw" ]; then
+      printf '%s%s' "$RESET" "$1"
+    else
+      printf '\[%s%s\]' "$RESET" "$1"
+    fi
   else
     printf '%%{%s%s%%}' "$RESET" "$1"
   fi
@@ -28,7 +32,7 @@ __dotfiles_git_repo() {
   git_status="$(git status --porcelain 2>/dev/null)"
   [ -n "$git_status" ] && git_status="[!]"
 
-  printf '%s' "$(__dotfiles_style "$SOLAR_WHITE") on $(__dotfiles_style "$SOLAR_CYAN")$branch$git_status"
+  printf '%s' "$(__dotfiles_style "$SOLAR_WHITE" raw) on $(__dotfiles_style "$SOLAR_CYAN" raw)$branch$git_status"
 }
 
 # Build the prompt string for the given shell
