@@ -62,6 +62,11 @@ build_prompt() {
   prompt+="$(__dotfiles_style "$SOLAR_ORANGE")$user$(__dotfiles_style "$SOLAR_WHITE")@$(__dotfiles_style "$SOLAR_YELLOW")$host"
   prompt+="$(__dotfiles_style "$SOLAR_WHITE"): $(__dotfiles_style "$SOLAR_GREEN")$path"
   prompt+='$(__dotfiles_git_repo)'
+
+  if [ "$1" = "zsh" ]; then
+    prompt+=' %(?..'"$(__dotfiles_style "$SOLAR_ORANGE")"'[%?]'"$(__dotfiles_style)"')'
+  fi
+
   prompt+=$newline
   prompt+="$(__dotfiles_style "$SOLAR_WHITE")$prefix $(__dotfiles_style)"
 
