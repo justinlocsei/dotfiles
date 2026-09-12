@@ -52,7 +52,7 @@ perform_action() {
   log_action "32;01m" "EXEC" "$1"
 }
 
-# SKip an action
+# Skip an action
 #
 # @param $1 A message
 skip_action() {
