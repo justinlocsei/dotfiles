@@ -67,7 +67,12 @@ skip_action() {
 ensure_symlink_exists() {
   local target=$3
 
-  rm -f "$target"
+  if [[ -d "$target" ]]; then
+    rm -Rf "$target"
+  else
+    rm -f "$target"
+  fi
+
   perform_action "Link to $1"
   ln -s "$2" "$target"
 }
